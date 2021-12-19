@@ -1,0 +1,390 @@
+#importer les librairies:
+
+from bs4 import BeautifulSoup as soup
+import urllib.request
+import csv
+from urllib.request import urlopen as uReq
+
+
+
+
+
+
+
+
+
+#specifie  l'url:
+
+my_url1='https://www.moneymetals.com/1-oz-gold-bar/19'
+
+
+
+
+
+
+
+#se connecter avec le lien:
+
+product1=uReq(my_url1)
+page_html1=product1.read()
+product1.close()
+
+
+
+
+
+
+
+
+#analyser le code html:
+
+page_soup1=soup(page_html1,"html.parser")
+
+
+
+
+
+
+
+
+#extraire les prix selon les quantitées:
+
+qtte11=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[0:5]
+price11=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[14:22]
+qtte12=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[25:32]
+price12=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[41:49]
+qtte13=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[52:59]
+price13=page_soup1.find("tbody",{"id":"premium_data_parent"}).text.strip()[68:76]
+gold_bar1="PAMP suisse"
+
+
+
+
+
+
+
+
+#Affichage:
+
+print("gold_bar1: " + gold_bar1)
+print("qtte11: "+ qtte11)
+print("price11: " + price11)
+print("qtte12: "+ qtte12)
+print("price12: " + price12)
+print("qtte13: "+ qtte13)
+print("price13: " + price13)
+
+
+
+
+
+
+
+
+
+#specifie  l'url:
+
+my_url2='https://www.bgasc.com/product/1-oz-gold-bar-royal-canadian-mint-9999-fine-24kt-wafer-assay/royal-canadian-mint-gold-bars'
+#Se connecter avec le lien:
+
+product2=uReq(my_url2)
+page_html2=product2.read()
+product2.close()
+
+
+
+
+
+
+
+#Analyser le code html:
+
+page_soup2=soup(page_html2,"html.parser")
+
+
+
+
+
+
+#Extraire les prix selon les quantitées:
+
+qtte21=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[28:35].strip()
+price21=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[37:45].strip()
+qtte22=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[62:68].strip()
+price22=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[69:78].strip()
+qtte23=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[90:100].strip()
+price23=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[101:110].strip()
+gold_bar2="Canadian Mint"
+
+
+
+
+
+
+
+#Affichage:
+
+print("gold_bar2: " + gold_bar2)
+print("qtte21: " + qtte21)
+print("price21: " + price21)
+print("qtte22: " + qtte22)
+print("price22: " + price22)
+print("qtte23: " + qtte23)
+print("price23: " + price23)
+
+
+
+
+
+
+
+
+#Spécifier l'url:
+
+my_url3='https://www.bgasc.com/product/1-oz-gold-bar-valcambi-9999-fine-24kt-in-assay/valcambi-gold-bars'
+
+
+
+
+#Se conneecter avec le lien:
+
+product3=uReq(my_url3)
+page_html3=product3.read()
+product3.close()
+
+
+
+
+#Analyser le code html:
+
+page_soup3=soup(page_html3,"html.parser")
+
+
+
+
+
+#Extraire les prix selon les quantitées:
+
+qtte31=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[28:35].strip()
+price31=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[37:45].strip()
+qtte32=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[62:68].strip()
+price32=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[69:78].strip()
+qtte33=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[90:100].strip()
+price33=page_soup2.find("div",attrs={"id":"qty-discount"}).text.strip()[101:110].strip()
+gold_bar3="Valcambi"
+
+
+
+
+
+#Affichage:
+
+print("gold_bar3: " + gold_bar3)
+print("qtte31: " + qtte31)
+print("price31: " + price31)
+print("qtte32: " + qtte32)
+print("price32: " + price32)
+print("qtte33: " + qtte33)
+print("price33: " + price33)
+
+
+
+
+
+
+
+#Spécifier l'url:
+
+my_url4='https://www.jmbullion.com/1-oz-argor-heraeus-gold-bar/'
+
+
+
+
+
+#Se connecter avec le lien:
+
+product4=uReq(my_url4)
+page_html4=product4.read()
+product4.close()
+
+
+
+
+
+
+
+
+
+#Analyser le code html:
+
+page_soup4=soup(page_html4,"html.parser")
+
+
+
+#Extraire les prix selon les quantitées:
+
+qtte41=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[213:216].strip()
+price41=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[230:240].strip()
+qtte42=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[297:302].strip()
+price42=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[316:324].strip()
+qtte43=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[383:386].strip()
+price43=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[400:408].strip()
+gold_bar4="Argor Heraeus"
+
+
+
+
+
+
+
+
+
+#Affichage:
+
+print("gold_bar4: " + gold_bar4)
+print("qtte41: " + qtte41)
+print("price41: " + price41)
+print("qtte42: " + qtte42)
+print("price42: " + price42)
+print("qtte43: " + qtte43)
+print("price43: " + price43)
+
+
+
+
+
+
+
+
+
+
+#Spécifier l'url:
+
+my_url5='https://www.jmbullion.com/1-oz-perth-mint-cast-gold-bar/'
+
+
+
+
+#Se connecter avec le lien:
+
+product5=uReq(my_url5)
+page_html5=product5.read()
+product5.close()
+
+
+
+
+
+#Analyser le code html:
+
+page_soup5=soup(page_html5,"html.parser")
+
+
+
+
+
+
+
+
+#Extraire les prix selon les quantitées:
+
+qtte51=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[213:216].strip()
+price51=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[230:240].strip()
+qtte52=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[297:302].strip()
+price52=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[316:324].strip()
+qtte53=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[383:386].strip()
+price53=page_soup4.find("div",attrs={"class":"payment-inner"}).text.strip()[400:408].strip()
+gold_bar5="Perth Mint"
+
+
+
+
+
+
+
+#Affichage:
+
+print("gold_bar5: " + gold_bar5)
+print("qtte51: " + qtte51)
+print("price51: " + price51)
+print("qtte52: " + qtte52)
+print("price52: " + price52)
+print("qtte53: " + qtte53)
+print("price53: " + price53)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Creation du fichier csv:
+
+file="gold.csv"
+
+
+
+
+
+
+
+
+
+
+
+#Ouverture du fichier:
+
+f=open(file,"w")
+headers="gold_bar, quantity, price of each bar\n"
+f.write(headers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Insertion des données :
+
+f.write(gold_bar1  +","+ qtte11 + "," + price11.replace(",",".")+"\n")
+f.write(gold_bar1  +","+ qtte12 + "," + price12.replace(",",".")+"\n")
+f.write(gold_bar1  +","+ qtte13 + "," + price13.replace(",",".")+"\n")
+f.write(gold_bar2  +","+ qtte21 + "," + price21.replace(",",".")+"\n")
+f.write(gold_bar2  +","+ qtte22 + "," + price22.replace(",",".")+"\n")
+f.write(gold_bar2  +","+ qtte23 + "," + price23.replace(",",".")+"\n")
+f.write(gold_bar3  +","+ qtte31 + "," + price31.replace(",",".")+"\n")
+f.write(gold_bar3  +","+ qtte32 + "," + price32.replace(",",".")+"\n")
+f.write(gold_bar3  +","+ qtte33 + "," + price33.replace(",",".")+"\n")
+f.write(gold_bar4  +","+ qtte41 + "," + price41.replace(",",".")+"\n")
+f.write(gold_bar4  +","+ qtte42 + "," + price42.replace(",",".")+"\n")
+f.write(gold_bar4  +","+ qtte43 + "," + price43.replace(",",".")+"\n")
+f.write(gold_bar5  +","+ qtte51 + "," + price51.replace(",",".")+"\n")
+f.write(gold_bar5  +","+ qtte52 + "," + price52.replace(",",".")+"\n")
+f.write(gold_bar5  +","+ qtte53 + "," + price53.replace(",",".")+"\n")
+
+
+
+
+
+
+#Fermeture du fichier:
+f.close()
